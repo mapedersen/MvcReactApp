@@ -10,17 +10,18 @@ export default defineConfig({
     hmr: {
       clientPort: 5173,
     },
+    cors: true,
   },
   build: {
-    outDir: "../wwwroot/react",
+    outDir: "../wwwroot/react", // For production builds
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, "src/main.jsx"), // Shared bundle
+        main: path.resolve(__dirname, "src/main.jsx"),
       },
       output: {
         entryFileNames: "[name]-bundle.js",
-        chunkFileNames: "chunks/[name]-[hash].js", // Generates smaller files for dynamic imports
+        chunkFileNames: "chunks/[name]-[hash].js",
         assetFileNames: "assets/[name].[ext]",
       },
     },
